@@ -1,0 +1,129 @@
+---
+title: "Ringtail Pilot Project Protocol"
+author: "Anna Willoughby"
+date: "March 18, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(DT)
+```
+
+**(record any changes to this protocol at the end of this document)**
+ 
+### Background: 
+  
+The decline of large predators in natural areas has allowed populations of other carnivores to increase through the process of ‘mesopredator release’. Mesopredators are typically medium-sized mammals (< 30 lbs) that reproduce more frequently and aggregate in higher densities than large predators (e.g., foxes, raccoons and skunks). As humans continue to visit and use wildlife areas, meso-predator release is expected to become more common. Additionally, visitors to parks and nature reserves can intentionally and unintentionally provide food to wildlife through hand feeding and by leaving behind trash at campsites. Small carnivores, with their generalist diets, seem especially adept at shifting their foraging behavior to access tourist-provided food. One outstanding question involves understanding how shifts in wildlife behavior, such as habitat range sizes or aggregation around food sources, affect their interactions with pathogens, including exposure to parasites and susceptibility to infection. Understanding these changes in wildlife behavior and health is critical for evaluating how human activities impact animals inhabiting parks. My dissertation research focuses on small mammal communities in Zion National Park (ZNP) in Utah, a site that is well suited to explore the mechanisms associated with tourist activity on wildlife behavior and infection.
+
+### Ecological themes
+* trophic downgrading; mesopredator release
+* specialism/generalism
+* resource selection function; optimal escape theory 
+* anthropogenic tolerance
+* socio-ecological mismatch
+
+### Research questions: 
+1. What is the frequency and context of human-ringtail interactions?
+2. How do visitor-provided resources affect ringtail behavior? 
+3. How do visitor-provided resources affect ringtail physiology? 
+4. How do ringtail human interactions, behavior, and physiology influence pathogen dynamics?
+
+### Study design: 
+
+Active and passive trapping along a gradient of human activity: high-use near public park areas (e.g. lodges, hotels, restaurants), medium use near trails and campsites, and non-human areas. 
+
+### Data sources: 
+
+* Q1. Literature review
+* Q2. Field study
+* Q3. Field study, literature review for prey isotopes, mixing model
+* Q4. Field study + Model
+
+### Analysis: 
+
+* [Summary of how results will be summarized and reported]
+* [Visualizations]
+* [Anticipated outcomes]
+
+### Checklist: 
+
+#### Funding Applications
+
+| Source  | Grant |   Title | Submission Date | Research Questions | document link |  outcome | amount received |
+|---|---|---|---|---|---|---|---|
+| NSF | GRFP | Behavioral, immunological, and infection consequences of campsite scavenging on wildlife  | 22 October 2018  | Q2, Q3, Q4 | [proposal](https://drive.google.com/file/d/1WSYlNUR7BYE2qGsTyqFy83hTwaEjFyO1/view?usp=sharing) | unfunded: [feedback](https://drive.google.com/open?id=1JhVJV_Rkik0-j-qc6ZjeyQ5eb6V9qA9P) | none |
+| AMNH | Theodore Roosevelt Research Grant | Nutritional and infection consequences of trash-scavenging in a park meso-mammal | 15 February 2019 | Q3 |  [proposal](https://drive.google.com/file/d/1cyEBOJhGLIZwzX2s9tiqbojnsg8n15TD/view?usp=sharing) | unfunded | none |
+| UGA Graduate School |  Innovative and Interdisciplinary Research | Tourism impacts on park wildlife behavior and health: ringtails in Zion National Park | 28 February 2019 | Q1, Q2 |  [proposal](https://drive.google.com/file/d/1LVZHr9HLU38WDamKKPfLN6LYzaemAjP4/view?usp=sharing) | funded | $1750 |
+| Sigma Xi |  Grants in Aid of Research | Tourism impacts on park wildlife behavior and health: ringtails in Zion National Park | 20 March 2019 | Q2 |  [proposal](https://drive.google.com/open?id=1axEteecDwaL09k60j7nGZztA_Os31yqV) | pending | |
+| UGA Odum School of Ecology | Small Grant | Tourism impacts on park wildlife behavior and health: ringtails in Zion National Park | 1 April 2019 | Q2, Q3 | [proposal](https://drive.google.com/file/d/1rhSi5MRCQQ_APoYrUyFCsq1subEFlC5q/view?usp=sharing) | unfunded: [feedback](https://drive.google.com/file/d/1XIJvl7ndfWJxx8sGXK_GpiH-qWvrQZeS/view?usp=sharing) | none |
+| UGA IDEAS | Small Grant | TBD | 15 April 2019 | Untitled | [proposal](https://drive.google.com/file/d/1SmU4OzyWlrcSUIoWdtuVjzwGbSmGDqZ7/view?usp=sharing) | 50% funded [feedback](https://drive.google.com/file/d/1dOaLUc7WLIUH51ZafvRx1BYAclLZK1Ll/view?usp=sharing) | $298 |
+
+*Additional research funding received:* 
+| Source  | Date | Amount | Purpose | 
+|---|---|---|---|
+UGA CURO | May 6, 2019 | $1000 | Undergraduate Assistant stipend
+UGA Odum School of Ecology | April X, 2019 | $1200 | Travel and camping equipment
+
+#### Permits and Protocols 
+
+| Institution  | Type | Average Processing Time | Submission Date | Approval Date | document link |
+|---|---|---|---|---|
+| UGA IACUC | AUP | 46 days | 18 March 2019 | 2 May 2019 | [AUP](https://drive.google.com/open?id=1mn1vLvPaMmUNrjOuW1q72u-lBNWG9Cgh) |
+| Utah DWR | COR | x days | TBD | TBD | TBD |
+| NPS ZNP | AUP | 30-90 days | TBD | TBD | TBD |
+
+#### Field Protocol
+```{r field guide}
+
+```
+
+#### Site Descriptions
+
+#### Individual Traits 
+
+| Metric | Units | Method | Equipment Needed | 
+|---|---|---|---|
+| Sex |---|---|---|
+| Age Class |---|---|---|
+| Weight | grams |---| scale |
+| Body Length | mm |---|---|
+| Skull Width | mm |---|---|
+| Skull Length | mm |---|---|
+| Tail Length | mm |---|---|
+| Ear Length | mm |---|---|
+| Photos |---|---| camera |
+
+#### Sample Collections 
+
+| Sample Type  | Amount | Per Individual | Total | Storage Method | Analysis | Research Question | Analysis Amount | Price | References |
+|---|---|---|---|---|---|---|---|---|
+| Tissue |---|---|---|---|  Stable Carbon (13) and Nitrogen (15) | Q3: Diet | --- |---|---|
+| Fur |---| >10 guard hairs |---|---| Stable Carbon (13) and Nitrogen (15) | Q3: Diet | $16 per sample | [Hopkins et al. 2014](https://esajournals.onlinelibrary.wiley.com/doi/pdf/10.1890/130276) |
+| Fur |---|---|---|---|Cortisol | Q3: Stress |---|---|---|
+| Vibrassae |---|---|---|---| Stable Carbon (13) and Nitrogen (15) | Q3: Diet |---|---|---|
+| Blood | < 10 mL |---|---|---| Cortisol | Q3: Stress |---|---|---|
+| Blood | X |---|---|---| Leukocytes| Q3: Immune Response |---|---|
+| Blood | X |---|---|---| Antibacterial peptides| Q3: Immune Response |---|---|---|
+| Blood | X |---|---|---| IgG Assay (Toxoplasma) | Q3/Q4: Immune Response |---| $161 per 96 wells | MP Biomedicals |
+| Blood | X |---|---|---| Infection: Assay | Q4: Infection |---|---|---|
+| Blood | X |---|---|---| Smear? | Q4: Infection | ---|---|---|
+| Fecal |---|---|---|---| 13C | Q3: Diet |---|---|---|
+| Fecal |---|---|---|---|---| Q4: Infection |---|---|---|
+| Fecal |---|---|---|---| Cortisol | Q3: Stress |---|---|---|
+| Ectoparasites |---|---|---|---| --- | Q4: Infection | ---|---|---|
+
+#### Equipment Checklist 
+
+* [writing auxiliary codes for data preprocessing, support functions, postprocessing/summary/visualization]
+* [main program]
+* [final report]
+
+### Future avenues for research
+* Dynamic species distribution modeling via trapping and social media data 
+* Landscape-level effects of human-subsidized diets: Future scenarios of symbiotic mammal-fruiting plants systems with increasing human activity in ZNP (proposal for ECOL8322)
+
+### Protocol changes:
+
+* [bullet list of changes to protocols with reasons for each change]

@@ -1,0 +1,133 @@
+---
+title: "RingtailMapping"
+author: "Anna Willoughby"
+date: "March 26, 2019"
+output: html_document
+---
+
+```{r setup}
+library(tidyverse)
+library(rgeos)
+library(raster)
+library(PBSmapping)
+library(stringr)
+library(viridis)
+library(sf)
+library(maptools)
+library(fasterize)
+require("rgdal")
+require("ggplot2")
+require("plyr")
+```
+
+```{r}
+library(plotly)
+# mapbox token at https://account.mapbox.com/access-tokens/
+Sys.setenv('MAPBOX_TOKEN' = 'pk.eyJ1IjoiYXJ3NDYyMzIiLCJhIjoiY2p0cTA3NDN1MGFhejN6bnJ0NjN0cnZqZCJ9.gugmKp7YquDdnuyZcHRdxQ')
+rngtl <-st_read("data/spatial/ringtail_26March2019/data_0.shp") # load IUCN shape file 
+# load youtube extracted occurences
+
+gs_auth(new_user = TRUE) # opens authentication tab
+ringtail_vids <- gs_key("1n8QTm7LXDwf30vfvWw8QQT0Vy_TlWJalZHnCdXjIb20") # download info for full google sheets
+yt_points <- ringtail_vids %>% gs_read(ws= 1) # read data from the main sheet
+  
+  
+p <- plot_mapbox(rngtl) %>%
+  add_markers(
+    data = ringtail, x = ~longitude, y = ~latitude
+  ) %>%
+  layout(
+    mapbox = list(
+      zoom = 6
+    )
+  )
+p
+geo <- list(
+  scope = c('usa','mex'),
+  showland = TRUE,
+  landcolor = toRGB("gray95"),
+  countrycolor = toRGB("gray80")
+)
+
+blank_layer <- list(
+  title = "",
+  showgrid = F,
+  showticklabels = F,
+  zeroline = F)
+
+p <- plot_mapbox(rngtl) %>% map_data("county") %>%
+  group_by(group) %>%
+  plot_ly(
+    x = ~long,
+    y = ~lat,
+    fillcolor = 'white',
+    hoverinfo = "none") %>%
+  add_polygons(
+    line = list(color = 'black', width = 0.5)) %>%
+  add_polygons(rngtl) %>%
+  layout(
+    xaxis = blank_layer,
+    yaxis = blank_layer)
+p
+
+```
+
+
+```{r national park lands}
+# load national parks data 
+rngtl_nps <- read_csv("data/NPSpecies_FullListWithDetails_AdvancedSearch_20190219092644.csv")
+#nps boundary downloaded from https://irma.nps.gov/DataStore/Reference/Profile/2224545?lnv=True on 26 March 2019
+# nps <- st_read("data/spatial/nps_boundary/nps_boundary.shp")
+
+# only include NPS areas with ringtails
+nps  = shapefile("data/spatial/nps_boundary/nps_boundary", verbose = T)
+nps_transform <- spTransform(nps, CRS("+init=epsg:4326"))
+nps_w_rngtls <- as.vector(rngtl_nps$`Park Code`)
+nps_filtered <- nps[nps@data$UNIT_CODE %in% nps_w_rngtls,]
+# only include NPS areas with ringtails
+
+bbox <- nps_filtered@bbox
+nps_df <- nps_filtered %>% fortify(region = 'UNIT_Name')
+mo_df$id <- as.factor(mo_df$id)
+gg_df <- left_join(mo_df, mo_shp@data, by = c("id" = "sub_area"))
+
+np <- plot_mapbox(nps_filtered@data) %>%
+  layout(
+    mapbox = list(
+      zoom = 1
+    )
+  )
+np
+
+# input iDigBio data 
+library(ridigbio)
+rngtl_idigbio <- idig_search_records(rq=list(genus="bassariscus"))
+rngtl_idigbio <- dplyr::filter(rngtl_idigbio, scientificname %in% 
+                                 c("astutus","bassariscus astuta","bassariscus astuttus","bassariscus astutus",
+                                   "bassariscus astutus (lichtenstein, 1827)" ,"bassariscus astutus arizonensis",
+                                   "bassariscus astutus astuta", "bassariscus astutus astutus" ,"bassariscus astutus bolei",
+                                   "bassariscus astutus cf.", "bassariscus astutus consitus","bassariscus astutus constitus",
+                                   "bassariscus astutus flavus","bassariscus astutus insulicola" ,
+                                   "bassariscus astutus lichtenstein, 1827","bassariscus astutus macdougall",
+                                   "bassariscus astutus macdougalli" ,"bassariscus astutus nevadensis",
+                                   "bassariscus astutus octarus","bassariscus astutus octavus", "bassariscus astutus palmarius",
+                                   "bassariscus astutus raptor","bassariscus astutus saxicola",
+                                   "bassariscus astutus ssp.","bassariscus astutus subsp. astutus",
+                                   "bassariscus astutus subsp. bolei","bassariscus astutus subsp. consitus",
+                                   "bassariscus astutus subsp. insulicola", "bassariscus astutus subsp. macdougalli",
+                                   "bassariscus astutus willetti", "bassariscus astutus yumanensis"))   
+
+rngtl_points <- dplyr::filter(rngtl_idigbio, is.na(geopoint.lon) == FALSE)
+rngtl_points <- dplyr::filter(rngtl_points, geopoint.lon != 0.00000)
+rtp <- plot_mapbox(rngtl_points, x = ~geopoint.lon, y = ~geopoint.lat)
+rtp
+
+3354.62 GC people/squaremile
+18,856 ZNP people/squaremile
+3429 YSM people/squaremile
+12500 GSM
+
+
+```
+
+
