@@ -1,0 +1,44 @@
+---
+title: "Youtube Preliminary Analysis"
+author: "Anna Willoughby"
+date: "May 22, 2019"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+# load libraries
+library(tidyverse)
+library(googlesheets)
+
+# load data 
+gs_auth(new_user = TRUE) # opens authentication tab
+youtube_vids <- gs_key("1iMgUi_YVgMcFb5Bung9jdunPhQRA6GT7b_l7XnqcitQ") # download info for full google sheets
+youtube_vids <- youtube_vids %>% gs_read(ws= 1) # read data from the main sheet
+
+# filter to videos of wild ringtails 
+filtered_vids <- youtube_vids %>% 
+  dplyr::filter(Include_studyspecies == "yes") %>%
+  dplyr::filter(is.na(Filter_criteria) == TRUE)
+```
+
+## Social media as a digital data source for wildlife ecology studies 
+
+This is a preliminary analysis for a case study to be presented at the 3^{rd} Annual Digital Data in Biodiversity Research Conference on June 11^{th} at Yale University.  
+
+### Conference Abstract: 
+
+Temporally and spatially explicit occurrence data are important for conservation and population management of wildlife. Yet for many species that are nocturnal, wide-ranging, rare, or non-charismatic these data are particularly challenging to assemble. Current databases typically rely on open-access specimen, citizen science-collected observation, and scientific field surveys. Social media sites like YouTube and TripAdvisor can host videos, photos, and other observations of wildlife that could represent another source of occurrence information. This session discusses the new horizon of data scraping social media platforms to collect wildlife occurrence data. We will review the current status of social media posts in digital databases, issues of data quality and consistency, and the developing formalized pipelines for filtering and standardizing uninformed user submitted data. The case study of ringtails, an elusive mammal native to North America, will be used to explore the species occurrence, behavioral activities, and human interactions.
+
+## Case Study: *Bassariscus* species distribution, behavioral activities, and human interactions
+
+### Background 
+
+### Methods 
+To describe the interactions between ringtails and humans, we collected and analyzed videos posted to the social media website, Youtube (San Bruno, CA). Videos were retrieved via the `tuber` R package on May 22, 2019 using the search terms *ringtail*, *ringtail cat*, *miner's cat*, and *cacomistle*. Out of the `nrow(youtube_vids)` resulting unique videos, we removed videos that did have animal of the genus *Bassariscus* present (n = `nrow(subset(filtered_vids, ringtails_individuals!=0))`). We also included videos that did not have a *Bassariscus* present, but showed a latrine identified to the species (n = `nrow(subset(filtered_vids, ringtails_individuals==0))`). 
+
+We recorded location when availble from the video title, description, uploader id, dialogue, or captions (n = 'nrow(subset(filtered_vids, location != "NA"))`). 
+
+### Results 
+
