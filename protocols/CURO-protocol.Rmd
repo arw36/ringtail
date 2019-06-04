@@ -1,0 +1,49 @@
+---
+title: "CURO-Protocol"
+author: "Zoe Boyles"
+date: "June 4, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Summer 2019 CURO Reseach Project
+
+### Authors
+* Zoe Boyles
+* Anna Willoughby
+
+
+**(record any changes to this protocol at the end of this document)**
+
+### Background: 
+
+[Insert intellectual background/context/rationale]
+
+### Study design: 
+
+[Experimental design as narrative or list of steps]
+
+### Data sources: 
+
+* [list with descriptions of any external data sources with permissions required]
+
+### Analysis: 
+
+* [Summary of how results will be summarized and reported]
+* [Visualizations]
+* [Anticipated outcomes]
+
+### Checklist: 
+
+* [bullet list of tasks, include dates, assignment, and initial complete, possibilities include]
+* [obtaining, quality check, formatting, and merging datasets]
+* [writing auxiliary codes for data preprocessing, support functions, postprocessing/summary/visualization]
+* [main program]
+* [final report]
+
+### Protocol changes:
+
+* [bullet list of changes to protocols with reasons for each change]
