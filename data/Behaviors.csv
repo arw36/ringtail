@@ -1,0 +1,25 @@
+﻿behavior,description,category
+eating,consuming food item,forage
+walking,moving at a steady pace,moving
+stopped,"no longer walking, motionless in one place",rest
+sniffing,smelling an object or the ground,forage
+sipping,"drinking water from river, pool or stream",forage
+staring,"individual is not moving, eyes are fixed on a certain point or area",rest
+running,moving at a faster pace than walking,moving
+hop,individual jumps on or off of trail wall,moving
+digging,"using paws to displace dirt or sand, may or may not be caching food item",forage
+oos,out of sight- individual not visible to observer,oos
+licking,indivdual is licking self,grooming
+begging,"on hind legs, gesturing or looking at human",human interaction
+chase,two or more squirrels running/fighting with each other,squirrel interaction
+vocalization,emitting a call or other noise,squirrel interaction
+laying down,body flat against ground,rest
+bite,individual makes an attempt to bite a human (does not have to be successful),human interaction
+play,non-aggressive contact or movement between two or more squirrels,play
+chewing,repeatedly biting a non-food item without consuming,forage
+contact,"brief, neutral interaction between two or more squirrels that does not involve movement ",play
+sitting,"individual resting on hind legs, eyes not fixed on one specific point",rest
+climbing,"moving up a tree, wall or other elevated structure",moving
+hunting,chasing or following insect,forage
+standing,on hind legs without intent to obtain resources from human,rest
+rolling,"moving side-to-side on the ground, covering self in dust or sand",play
